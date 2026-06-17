@@ -1,0 +1,49 @@
+---
+title: '<Name>'
+description: <One-line description.>
+sidebar:
+  label: '<Name>'
+entityType: Creature   # or 'Species'
+setting: ['shared']
+status: '<Extant | Extinct | Unique | Erased (Oblivia) | Unknown>'
+era: '<relevant period>'
+aka: []
+affiliations: []
+location: '<habitat / plane>'
+firstAppearance: '<arc>'
+image: ''
+gallery: []
+oblivia: false
+sources:
+  - 'sources/handwritten/<file>.md'
+# needsSource: true
+---
+
+import Infobox from '@components/Infobox.astro';
+import Oblivia from '@components/Oblivia.astro';
+
+<Infobox
+  title="<Name>"
+  caption="<Species / unique being>"
+  rows={[
+    ["Type", "<creature type>"],
+    ["Habitat", "<where / which plane>"],
+    ["Alignment", "<if relevant>"],
+    ["Status", "<Extant / Extinct / Unique>"],
+    ["Notable individuals", "<names>"],
+  ]}
+/>
+
+{/* Lead: what the creature/species is. */}
+
+## Overview
+
+## Description
+
+## Behavior & society
+
+## Habitat
+
+## Notable individuals
+
+## History

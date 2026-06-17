@@ -1,0 +1,234 @@
+/* The Infantaverse — Homebrewery-inspired theme for Starlight.
+   Retheme Starlight's design tokens toward a parchment/ink "archive" look,
+   plus the signature wiki components: Infobox, Oblivia toggle, Gallery. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral+SC:wght@500;600&display=swap');
+
+:root {
+	--ink: #1b1610;
+	--oxblood: #7a1f1f;
+	--gold: #8a6d2f;
+	--parchment: #efe6d2;
+	--parchment-2: #e7dcc2;
+	--parchment-edge: #d8c9a6;
+	--sl-font: 'EB Garamond', Georgia, 'Times New Roman', serif;
+	--sl-font-mono: 'Courier New', monospace;
+}
+
+/* ---- Light ("parchment") theme ---- */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #e3d2b8;
+	--sl-color-accent: #7a1f1f;
+	--sl-color-accent-high: #5a1414;
+	--sl-color-white: #1b1610;
+	--sl-color-gray-1: #2a2118;
+	--sl-color-gray-2: #3a3024;
+	--sl-color-gray-3: #5b4d39;
+	--sl-color-gray-4: #6f6049;
+	--sl-color-gray-5: #8a7a5f;
+	--sl-color-gray-6: #cdbf9f;
+	--sl-color-gray-7: #ddd0b3;
+	--sl-color-black: #efe6d2;
+	--sl-color-bg: #efe6d2;
+	--sl-color-bg-nav: #e7dcc2;
+	--sl-color-bg-sidebar: #e9dfc7;
+	--sl-color-hairline-shade: #d2c2a0;
+	--sl-color-text-accent: #7a1f1f;
+}
+
+/* ---- Dark ("midnight archive") theme ---- */
+:root[data-theme='dark'] {
+	--sl-color-accent-low: #3a1414;
+	--sl-color-accent: #c08a3e;
+	--sl-color-accent-high: #e6c889;
+	--sl-color-bg: #14110d;
+	--sl-color-bg-nav: #1b1610;
+	--sl-color-bg-sidebar: #1b1610;
+	--sl-color-text-accent: #d9b56a;
+}
+
+/* ---- Display type ---- */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.content-panel h1,
+h1#_top,
+.site-title {
+	font-family: 'Cinzel', 'EB Garamond', serif;
+	letter-spacing: 0.01em;
+}
+.sl-markdown-content h1,
+.sl-markdown-content h2 {
+	color: var(--oxblood);
+	border-bottom: 2px solid var(--gold);
+	padding-bottom: 0.15em;
+}
+:root[data-theme='dark'] .sl-markdown-content h1,
+:root[data-theme='dark'] .sl-markdown-content h2 {
+	color: var(--sl-color-text-accent);
+}
+
+/* ============ Infobox (right-rail entity card) ============ */
+.infobox {
+	float: right;
+	width: min(310px, 42%);
+	margin: 0 0 1.1rem 1.4rem;
+	border: 1px solid var(--gold);
+	border-radius: 6px;
+	background: linear-gradient(180deg, var(--parchment-2), var(--parchment));
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+	font-size: 0.86rem;
+	overflow: hidden;
+}
+:root[data-theme='dark'] .infobox {
+	background: #1f1a13;
+	border-color: #5a4a2a;
+}
+.infobox__title {
+	font-family: 'Cinzel', serif;
+	font-weight: 700;
+	text-align: center;
+	background: var(--oxblood);
+	color: #f3e7cf;
+	padding: 0.5rem 0.6rem;
+	line-height: 1.15;
+}
+.infobox__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid var(--gold);
+}
+.infobox__caption {
+	font-size: 0.74rem;
+	font-style: italic;
+	text-align: center;
+	opacity: 0.8;
+	padding: 0.25rem 0.5rem;
+}
+.infobox dl {
+	margin: 0;
+	padding: 0.4rem 0.7rem 0.7rem;
+}
+.infobox dt {
+	font-variant: small-caps;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	color: var(--oxblood);
+	margin-top: 0.5rem;
+	font-size: 0.78rem;
+}
+:root[data-theme='dark'] .infobox dt {
+	color: var(--sl-color-text-accent);
+}
+.infobox dd {
+	margin: 0.05rem 0 0;
+}
+@media (max-width: 50rem) {
+	.infobox {
+		float: none;
+		width: 100%;
+		margin: 0 0 1.2rem;
+	}
+}
+
+/* ============ Oblivia toggle (the spoiler-replacement) ============ */
+details.oblivia {
+	margin: 1.2rem 0;
+	border: 1px dashed #4a4036;
+	border-radius: 5px;
+	background: repeating-linear-gradient(
+		45deg,
+		#171310,
+		#171310 8px,
+		#1d1813 8px,
+		#1d1813 16px
+	);
+	color: #e9dfc7;
+}
+details.oblivia > summary {
+	cursor: pointer;
+	list-style: none;
+	padding: 0.55rem 0.9rem;
+	font-family: 'Spectral SC', 'Cinzel', serif;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	font-size: 0.82rem;
+	color: #cdbf9f;
+	background: #11100c;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+}
+details.oblivia > summary::-webkit-details-marker {
+	display: none;
+}
+details.oblivia > summary::before {
+	content: '▸';
+	color: var(--oxblood);
+	transition: transform 0.15s ease;
+}
+details.oblivia[open] > summary::before {
+	transform: rotate(90deg);
+}
+details.oblivia > summary::after {
+	content: 'RECOVERED FROM OBLIVIA';
+	margin-left: auto;
+	font-size: 0.66rem;
+	letter-spacing: 0.2em;
+	color: var(--oxblood);
+	border: 1px solid var(--oxblood);
+	border-radius: 3px;
+	padding: 1px 6px;
+	opacity: 0.8;
+}
+details.oblivia[open] > summary::after {
+	content: 'RESEALED';
+	opacity: 0.5;
+}
+details.oblivia .oblivia__body {
+	padding: 0.4rem 1rem 0.9rem;
+}
+details.oblivia .oblivia__body > :first-child {
+	margin-top: 0.6rem;
+}
+
+/* ============ Gallery ============ */
+.iv-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 0.7rem;
+	margin: 1.1rem 0;
+}
+.iv-gallery figure {
+	margin: 0;
+	border: 1px solid var(--gold);
+	border-radius: 5px;
+	background: var(--parchment-2);
+	overflow: hidden;
+}
+.iv-gallery img {
+	display: block;
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+}
+.iv-gallery figcaption {
+	font-size: 0.74rem;
+	text-align: center;
+	padding: 0.25rem 0.35rem;
+	font-style: italic;
+}
+
+/* ============ "needs source" banner ============ */
+.needs-source {
+	border: 1px solid var(--gold);
+	border-left: 4px solid var(--oxblood);
+	background: rgba(122, 31, 31, 0.06);
+	padding: 0.6rem 0.9rem;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	margin: 1rem 0;
+}

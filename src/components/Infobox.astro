@@ -1,0 +1,30 @@
+---
+/**
+ * Infobox — right-rail entity card for wiki articles.
+ * Usage in MDX:
+ *   <Infobox title="Stonecypher" image="/assets/characters/stonecypher.png"
+ *            caption="Ally card" rows={[["Type","Player Character"],["Status","Erased (Oblivia)"]]} />
+ */
+interface Props {
+	title: string;
+	image?: string;
+	caption?: string;
+	rows?: [string, string][];
+}
+const { title, image, caption, rows = [] } = Astro.props;
+---
+<aside class="infobox" aria-label={`Infobox: ${title}`}>
+	<div class="infobox__title">{title}</div>
+	{image && <img class="infobox__img" src={image} alt={title} loading="lazy" />}
+	{caption && <div class="infobox__caption">{caption}</div>}
+	{rows.length > 0 && (
+		<dl>
+			{rows.map(([k, v]) => (
+				<>
+					<dt>{k}</dt>
+					<dd set:html={v} />
+				</>
+			))}
+		</dl>
+	)}
+</aside>

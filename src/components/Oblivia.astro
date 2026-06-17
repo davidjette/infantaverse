@@ -1,0 +1,21 @@
+---
+/**
+ * Oblivia — the spoiler-replacement toggle. Wraps lore that is "erased/forgotten"
+ * in-world; renders as a redacted-parchment block the reader reveals.
+ * The content inside MUST still be sourced (sourcing policy).
+ * Usage in MDX:
+ *   <Oblivia label="The fate of the god">
+ *     ...sourced erased lore...
+ *   </Oblivia>
+ */
+interface Props {
+	label?: string;
+}
+const { label = 'Erased record' } = Astro.props;
+---
+<details class="oblivia">
+	<summary>{label}</summary>
+	<div class="oblivia__body">
+		<slot />
+	</div>
+</details>

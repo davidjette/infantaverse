@@ -1,0 +1,47 @@
+---
+title: '<Name>'
+description: <One-line description.>
+sidebar:
+  label: '<Name>'
+entityType: Concept
+setting: ['shared']
+status: ''            # usually blank for concepts
+era: '<when relevant, if applicable>'
+aka: []
+affiliations: []
+firstAppearance: '<arc>'
+image: ''
+gallery: []
+oblivia: false        # true if the concept is itself erased lore
+sources:
+  - 'sources/handwritten/<file>.md'
+# needsSource: true
+---
+
+import Infobox from '@components/Infobox.astro';
+import Oblivia from '@components/Oblivia.astro';
+
+{/* Infobox optional for concepts — include only if there are crisp facts to list. */}
+<Infobox
+  title="<Name>"
+  caption="<Cosmology / mechanic / religion>"
+  rows={[
+    ["Type", "<Cosmology / mechanic / religion / phenomenon>"],
+    ["Domain", "<what it governs>"],
+    ["First attested", "<arc / era>"],
+  ]}
+/>
+
+{/* Lead: what the concept is, in one or two sentences. */}
+
+## Overview
+
+## Nature
+
+## Mechanics
+
+## History
+
+## Implications
+
+## Relationships

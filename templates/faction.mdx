@@ -1,0 +1,50 @@
+---
+title: '<Name>'
+description: <One-line description.>
+sidebar:
+  label: '<Name>'
+entityType: Faction
+setting: ['shared']
+status: '<Active | Defunct | Erased (Oblivia) | Unknown>'
+era: '<when active>'
+aka: []
+affiliations: []      # parent / allied / rival orgs
+location: '<headquarters>'
+firstAppearance: '<arc>'
+image: ''
+gallery: []
+oblivia: false
+sources:
+  - 'sources/handwritten/<file>.md'
+# needsSource: true
+---
+
+import Infobox from '@components/Infobox.astro';
+import Oblivia from '@components/Oblivia.astro';
+
+<Infobox
+  title="<Name>"
+  caption="<House / Company / Cult / Order>"
+  rows={[
+    ["Type", "<House / Company / Cult / Order>"],
+    ["Leader", "<name>"],
+    ["Headquarters", "<place>"],
+    ["Founded", "<era>"],
+    ["Notable members", "<names>"],
+    ["Status", "<Active / Defunct>"],
+  ]}
+/>
+
+{/* Lead: what the faction is and its role in the world. */}
+
+## Overview
+
+## Structure & leadership
+
+## History
+
+## Members
+
+## Holdings
+
+## Relationships

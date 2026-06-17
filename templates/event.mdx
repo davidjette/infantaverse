@@ -1,0 +1,46 @@
+---
+title: '<Name>'
+description: <One-line description.>
+sidebar:
+  label: '<Name>'
+  # order: <number>   # only for Arc pages, to order the chronicle
+entityType: Event      # use 'Arc' for a multi-session campaign chapter
+setting: ['shared']
+status: '<Complete | Ongoing | Erased (Oblivia)>'
+era: '<when it happened>'
+aka: []
+firstAppearance: '<arc, if a discrete in-world event>'
+image: ''
+gallery: []
+oblivia: false
+sources:
+  - 'sources/handwritten/<file>.md'
+# needsSource: true
+---
+
+import Infobox from '@components/Infobox.astro';
+import Oblivia from '@components/Oblivia.astro';
+
+<Infobox
+  title="<Name>"
+  caption="<turning point / battle / rite>"
+  rows={[
+    ["Type", "<Event / Battle / Rite>"],
+    ["When", "<era / date>"],
+    ["Where", "<place>"],
+    ["Participants", "<who>"],
+    ["Outcome", "<what changed>"],
+  ]}
+/>
+
+{/* Lead: what happened and why it matters. */}
+
+## What happened
+
+## Background
+
+## Consequences
+
+{/* For Arc pages, follow the richer pattern in events/*.mdx instead:
+     Infobox -> lead + in-world pull-quote -> narrative movements with quoted
+     read-aloud text -> ~3 <Oblivia> reveals -> "Into <next arc>" bridge. */}

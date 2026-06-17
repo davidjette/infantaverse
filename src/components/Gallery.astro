@@ -1,0 +1,29 @@
+---
+/**
+ * Gallery — simple responsive image grid for Ally cards, maps, scene art.
+ * Usage in MDX:
+ *   <Gallery images={[
+ *     { src: "/assets/maps/motherstone.png", caption: "Motherstone" },
+ *     { src: "/assets/maps/snowdown.png", caption: "Snowdown" },
+ *   ]} />
+ */
+interface Img {
+	src: string;
+	caption?: string;
+	alt?: string;
+}
+interface Props {
+	images: Img[];
+}
+const { images = [] } = Astro.props;
+---
+<div class="iv-gallery">
+	{images.map((img) => (
+		<figure>
+			<a href={img.src} target="_blank" rel="noopener">
+				<img src={img.src} alt={img.alt ?? img.caption ?? ''} loading="lazy" />
+			</a>
+			{img.caption && <figcaption>{img.caption}</figcaption>}
+		</figure>
+	))}
+</div>

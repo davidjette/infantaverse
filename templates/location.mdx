@@ -1,0 +1,54 @@
+---
+title: '<Name>'
+description: <One-line description.>
+sidebar:
+  label: '<Name>'
+entityType: Location
+setting: ['shared']
+status: '<Standing | Ruined | Erased (Oblivia) | Unknown>'
+era: '<relevant period>'
+aka: []
+affiliations: []      # controlling power(s)
+location: '<parent region>'
+firstAppearance: '<arc>'
+image: ''
+gallery: []           # maps go here
+oblivia: false
+sources:
+  - 'sources/handwritten/<file>.md'
+# needsSource: true
+---
+
+import Infobox from '@components/Infobox.astro';
+import Oblivia from '@components/Oblivia.astro';
+import Gallery from '@components/Gallery.astro';
+
+<Infobox
+  title="<Name>"
+  caption="<City / Region / Plane / Ruin>"
+  rows={[
+    ["Type", "<City / Region / Plane / Ruin / Dungeon>"],
+    ["Region", "<parent place>"],
+    ["Government", "<who rules>"],
+    ["Population", "<who lives there>"],
+    ["Notable sites", "<landmarks>"],
+    ["Controlled by", "<faction>"],
+    ["Status", "<Standing / Ruined>"],
+  ]}
+/>
+
+{/* Lead: what the place is and why it matters. */}
+
+## Overview
+
+## Geography
+
+## Society & government
+
+## History
+
+## Notable sites
+
+## Inhabitants
+
+{/* <Gallery images={[{src:'...', caption:'map'}]} /> when maps exist. */}

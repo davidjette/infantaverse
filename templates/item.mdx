@@ -1,0 +1,50 @@
+---
+title: '<Name>'
+description: <One-line description.>
+sidebar:
+  label: '<Name>'
+entityType: Artifact
+setting: ['shared']
+status: '<Extant | Lost | Destroyed | Erased (Oblivia) | Unknown>'
+era: '<origin period>'
+aka: []
+affiliations: []      # house / maker / current holder
+location: '<last known whereabouts>'
+firstAppearance: '<arc>'
+image: ''
+gallery: []
+oblivia: false        # true for erased relics
+sources:
+  - 'sources/handwritten/<file>.md'
+# needsSource: true
+---
+
+import Infobox from '@components/Infobox.astro';
+import Oblivia from '@components/Oblivia.astro';
+
+<Infobox
+  title="<Name>"
+  caption="<Weapon / Relic / Machine>"
+  rows={[
+    ["Type", "<Weapon / Relic / Machine>"],
+    ["Origin", "<who made it / where>"],
+    ["Era", "<when>"],
+    ["Status", "<Extant / Lost / Destroyed>"],
+    ["Current holder", "<who has it>"],
+    ["Powers", "<what it does>"],
+  ]}
+/>
+
+{/* Lead: what the item is and its significance. */}
+
+## Overview
+
+## Description
+
+## Powers
+
+## History
+
+## Provenance
+
+## Relationships

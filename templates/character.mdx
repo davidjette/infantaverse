@@ -1,0 +1,55 @@
+---
+title: '<Name>'
+description: <One-line description for search/social.>
+sidebar:
+  label: '<Name>'
+entityType: Character
+setting: ['shared']   # temple-holdings | dead-mans-hand | starfall-tng | arcaneum | shared
+status: '<Alive | Dead | Erased (Oblivia) | Unknown>'
+era: '<when active, free text>'
+aka: []               # alternate names / titles
+affiliations: []      # e.g. ['House Gallidann', 'Temple Holdings LLC']
+location: '<home / seat>'
+firstAppearance: '<arc or session>'
+image: ''             # optional portrait under /public or src/assets
+gallery: []
+oblivia: false        # true if the subject itself is erased lore
+sources:
+  - 'sources/handwritten/<file>.md'   # or 'Desktop/D&D/<path>'
+# needsSource: true   # uncomment if no real source yet
+---
+
+import Infobox from '@components/Infobox.astro';
+import Oblivia from '@components/Oblivia.astro';
+import Gallery from '@components/Gallery.astro';
+
+<Infobox
+  title="<Name>"
+  caption="<short role>"
+  rows={[
+    ["Type", "<Species / kind>"],
+    ["Status", "<Alive / Dead / Erased>"],
+    ["Affiliations", "<houses, orders, companies>"],
+    ["Home", "<place>"],
+    ["First appears", "<arc>"],
+    ["Role", "<what they are to the story>"],
+  ]}
+/>
+
+{/* Lead paragraph: who they are and why they matter, in one or two sentences. */}
+
+## Overview
+
+## Biography
+
+## Appearance
+
+## Personality
+
+## Abilities
+
+## History
+
+## Relationships
+
+{/* Use <Oblivia label="..."> for in-world secrets. Omit empty sections. */}
