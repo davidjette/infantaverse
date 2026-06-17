@@ -96,17 +96,36 @@ Oblivia reveals, richly cross-linked entity↔entity and entity→arc):
 
 _Last session: 2026-06-09 — wrote all 8 arc pages + 25 entity pages + category landing pages._
 
-## Pick up here (next session — set 2026-06-17)
-Arc → entity backlinking COMPLETE this session (Remaining item #1, now struck through above).
-All 8 arc pages cross-link to the 25 entity pages — 79 links, build clean at **47 pages**. Both
-cross-link directions now exist; the entity web is fully navigable.
+## NOW LIVE + UNDER GIT (2026-06-17)
+The wiki is deployed to **GitHub Pages: https://davidjette.github.io/infantaverse/**
+- Repo: **davidjette/infantaverse** (public). `git init` done; `main` is the deploy branch.
+- CI: `.github/workflows/deploy.yml` (withastro/action, Node 22 pinned, deploy-pages). **Every
+  push to `main` auto-rebuilds + redeploys** (~30-60s). Watch with `gh run watch`.
+- Base-path note: it's a project site, so `base: '/infantaverse'` is set in `astro.config.mjs`.
+  Astro does NOT base-prefix hand-written root-relative links in markdown, so a small **rehype
+  plugin in astro.config.mjs rewrites `<a href="/...">` to prepend the base** at build time.
+  Keep writing content links as `/characters/foo/` (NO base) — the plugin handles it. The ONLY
+  spot that needs the base hardcoded is Starlight **hero `actions[].link`** frontmatter
+  (index.mdx) — the plugin can't reach frontmatter.
+- Build: `npx astro build` clean at **53 pages**.
 
-**Recommended next step:** grow the entity set (Remaining item #2). The biggest gaps are the
-core PCs who carry every arc but have no page yet — **Kara**, **Drefan**, **Roland**, **Yoshi**,
-**Brother Magnus**, **Zanzibar** — plus recurring NPCs (Untari, Flex Gimble, the St. Cloud
-brothers, June/the Traveler, the Lady of Pain). These appear bolded across the arcs already, so
-each new page is immediately backlink-ready. Source ONLY from the real session docs at
-`Desktop/D&D/Temple Holdings LLC/` (NOT the oblivia-registry).
+## Pick up here (next session — set 2026-06-17)
+Two things done this session: (1) Arc → entity backlinking COMPLETE (item #1 above); (2) the
+**6 core-party PC pages** are written, live, and backlinked from the arcs:
+**Kara, Drefan, Roland (Deschain), Yoshi, Brother Magnus, Zanzibar** — narrative + a
+`## Character sheet` stats section pulled from `Desktop/D&D/Character Sheets/` PDFs (Kara=Human
+Sorc16/Wiz2, Drefan=Wood Elf Druid, Roland=Human gunslinger Ranger, Yoshi=Copper Dragonborn
+Eldritch Knight, Magnus=Hill Dwarf Cleric of Brightmantle; Zanzibar has no sheet on file).
+Note: the image-based sheet PDFs have no text layer — render page 1 to PNG via PyMuPDF
+(`fitz`, matrix 2x) then Read the PNG; `pdftoppm` is NOT installed.
+
+**Recommended next step:** keep growing the entity set (Remaining item #2). Remaining PCs with
+sheets in the folder: Cuthbert, Cedric, Stoth, Fulori Splitheal (+docx), Brad, Everest, etc.
+Then recurring NPCs (Untari, Flex Gimble, the St. Cloud brothers, June/the Traveler, the Lady of
+Pain, Chad of the Mundi). Optional polish: per-arc first-mention links for the new PCs in arcs
+II-VIII (currently each is linked once, from its introducing arc). Portraits exist for Kara
+(`Kara Headshot.jpg` etc.) if we want to wire up Infobox images. Source ONLY from real session
+docs at `Desktop/D&D/Temple Holdings LLC/` (NOT the oblivia-registry).
 
 **Or, if Dave brings prose:** run the INGEST loop (`INGEST.md`) for more entities (PCs Drefan/
 Kara/Roland/Yoshi/Zanzibar/Magnus; NPCs Untari/Jacob/Una/St. Cloud brothers; locations Zeal/
